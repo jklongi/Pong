@@ -9,22 +9,22 @@ import javax.swing.JPanel;
 public class PongPiirto extends JPanel {
     
     private Pallo pallo;
-    private LautaVasen lautaVasen;
-    private LautaOikea lautaOikea;
+    private Lauta vasen;
+    private Lauta oikea;
     
-    public PongPiirto(Pallo pallo, LautaVasen lautaVasen, LautaOikea lautaOikea){
+    public PongPiirto(Pallo pallo, Lauta vasen, Lauta oikea){
         super.setBackground(Color.GRAY);
         this.pallo = pallo;
-        this.lautaVasen = lautaVasen;
-        this.lautaOikea = lautaOikea;
-        
+        this.vasen = vasen;
+        this.oikea = oikea;    
     }
+
     @Override
     protected void paintComponent(Graphics graphics){
         super.paintComponent(graphics);
         pallo.piirra(graphics);
-        lautaVasen.piirra(graphics);
-        lautaOikea.piirra(graphics);
+        vasen.piirra(graphics);
+        oikea.piirra(graphics);
         repaint();
     }
     

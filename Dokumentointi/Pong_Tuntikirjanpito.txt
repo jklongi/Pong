@@ -1,3 +1,4 @@
 Tuntikirjanpito
 Ti 15.1. 		2h		Aiheen valitseminen. Github-repositorion luominen.
 Pe 18.1.		3h		Pelin perusta valmis, pallo ja mailat liikkuvat.
+Ti 22.1.		5h		Luokkakaavio, testit, refaktorointi. Pallo ei liiku.
