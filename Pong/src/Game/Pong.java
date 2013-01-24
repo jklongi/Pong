@@ -16,6 +16,8 @@ public class Pong extends JFrame implements Runnable{
     private Pallo pallo;
     private Lauta lautaVasen;
     private Lauta lautaOikea;
+    private PongLiikkuja liikkuja;
+    private PongLogiikka pong;
 
     public Pong() {
         
@@ -24,8 +26,7 @@ public class Pong extends JFrame implements Runnable{
     private void luoKomponentit(Container container){
         this.piirtoalusta = new PongPiirto(pallo, lautaVasen, lautaOikea);
         container.add(piirtoalusta);
-        frame.addKeyListener(new NappaimistonKuuntelija(lautaVasen, lautaOikea, piirtoalusta));
-        
+        frame.addKeyListener(new NappaimistonKuuntelija(lautaVasen, lautaOikea, piirtoalusta));    
     }
 
     @Override
@@ -33,10 +34,10 @@ public class Pong extends JFrame implements Runnable{
         this.lautaVasen = new Lauta(10, 185);
         this.lautaOikea = new Lauta(575, 185);
         this.pallo = new Pallo();
+        this.liikkuja = new PongLiikkuja(pallo, lautaOikea, lautaVasen, piirtoalusta);
+        this.pong = new PongLogiikka(liikkuja);
         
-        
-        
-        
+
         frame = new JFrame("Pong");
         frame.setPreferredSize(new Dimension(600,450));
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
@@ -46,9 +47,12 @@ public class Pong extends JFrame implements Runnable{
         frame.setBackground(Color.BLACK);
         frame.setVisible(true);
         frame.paint(frame.getGraphics());
-        PongLogiikka pong = new PongLogiikka(pallo, lautaOikea, lautaVasen, piirtoalusta);
+        
+         
 
         pong.aloita();
+
+        
 
     }
     

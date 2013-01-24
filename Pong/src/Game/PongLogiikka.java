@@ -1,68 +1,41 @@
 package Game;
 
-import java.awt.Component;
-import java.util.Random;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+import javax.swing.Timer;
 
 public class PongLogiikka{
-    
-    private int xSuunta;
-    private int ySuunta;
-    
-    private Component component;
-    private Random random;
-    
-    private Pallo pallo;
-    private Lauta oikea;
-    private Lauta vasen;
+
+    private PongLiikkuja liikkuja;
    
-    public PongLogiikka(Pallo pallo, Lauta oikea, Lauta vasen, Component component){
-        this.pallo = pallo;
-        this.oikea = oikea;
-        this.vasen = vasen;
-        
-        this.component = component;
-        
-        ArvoSuunta();
+    public PongLogiikka(PongLiikkuja liikkuja){
+        this.liikkuja = liikkuja;
     }
-    
-    public void ArvoSuunta(){
-        this.xSuunta = 1;
-        this.ySuunta = 1;
-    }
-    
-    public void osuukoSeinaan(){
-        
-        if( pallo.getX() <= 0){
-            this.xSuunta = 1;
-        }
-        if(pallo.getX() >= 585){
-            this.ySuunta = -1;
-        }
-        if( pallo.getY() <= 0){
-            this.ySuunta = 1;
-        }
-        if(pallo.getY() >= 415){
-            this.ySuunta = -1;
-        }
-        
-    }
-    
+
     public void aloita(){
-        while(true){
-            
-            pallo.liiku(this.xSuunta, this.ySuunta);
-            osuukoSeinaan();
-            component.repaint();
-//            Antaa NullPointerExceptionin?
-            
-            try{
-                Thread.sleep(6);
+        
+        int delay = 6;
+        ActionListener taskPerformer = new ActionListener(){
 
-            } catch (Exception e){
-                System.out.println("errori:" +e);
-            } 
-        }
+            @Override
+            public void actionPerformed(ActionEvent ae) {
+                liikkuja.liikutaPalloa();
+                liikkuja.osuukoSeinaan();
+            }
+            
+        };
+        new Timer(delay, taskPerformer).start();
+
+//        while(true){
+//            liikkuja.liikutaPalloa();
+//            liikkuja.osuukoSeinaan();
+//                    
+//            try{
+//                Thread.sleep(6);
+//
+//            } catch (Exception e){
+//                System.out.println("errori:" +e);
+//            }
+//        }
     }  
-
-
 }

@@ -22,10 +22,11 @@ public class PongPiirto extends JPanel {
     @Override
     protected void paintComponent(Graphics graphics){
         super.paintComponent(graphics);
-        pallo.piirra(graphics);
+        pallo.paint(graphics);
         vasen.piirra(graphics);
         oikea.piirra(graphics);
         repaint();
+        
     }
     
 }
