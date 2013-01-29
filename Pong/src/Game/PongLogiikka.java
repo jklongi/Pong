@@ -14,13 +14,17 @@ public class PongLogiikka{
 
     public void aloita(){
         
-        int delay = 6;
+        liikkuja.arvoSuunta();
+        
+        int delay = 4;
         ActionListener taskPerformer = new ActionListener(){
 
             @Override
             public void actionPerformed(ActionEvent ae) {
+                liikkuja.liikutaLautaa();
                 liikkuja.liikutaPalloa();
                 liikkuja.osuukoSeinaan();
+                liikkuja.osuukoLautaan();
             }
             
         };
