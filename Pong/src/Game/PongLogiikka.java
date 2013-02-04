@@ -4,6 +4,11 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import javax.swing.Timer;
 
+/** Luokka hallinnoi kaikkia olioita, sekä aikaa
+ * 
+ *  @author joonaslongi
+ */
+
 public class PongLogiikka{
 
     private PongLiikkuja liikkuja;
@@ -11,7 +16,13 @@ public class PongLogiikka{
     public PongLogiikka(PongLiikkuja liikkuja){
         this.liikkuja = liikkuja;
     }
-
+    
+    /**
+     * Metodi kutsuu kaikkia liikkujan metodeja
+     * 4 ms viiveellä
+     */
+    
+    
     public void aloita(){
         
         liikkuja.arvoSuunta();
@@ -29,17 +40,5 @@ public class PongLogiikka{
             
         };
         new Timer(delay, taskPerformer).start();
-
-//        while(true){
-//            liikkuja.liikutaPalloa();
-//            liikkuja.osuukoSeinaan();
-//                    
-//            try{
-//                Thread.sleep(6);
-//
-//            } catch (Exception e){
-//                System.out.println("errori:" +e);
-//            }
-//        }
     }  
 }

@@ -5,11 +5,16 @@ import java.awt.Color;
 import java.awt.Font;
 import java.awt.Graphics;
 
+    /**Luokasta luodaan pisteet-olio, jolla on int pisteiden arvo,
+     * sekä draw String metodi.
+     */
+
 public class Pisteet {
     
     private int pisteet;
     private int x;
     private int y;
+    
     
     public Pisteet(int x, int y){
         this.pisteet = 0;
@@ -30,6 +35,7 @@ public class Pisteet {
         Font f = new Font(null, Font.ITALIC, 18);
         g.setFont(f);
         g.drawString("" + this.pisteet, x, y);
+        
     }
     
     @Override

@@ -5,6 +5,10 @@ import java.awt.Color;
 import java.awt.Graphics;
 import javax.swing.JPanel;
 
+/**
+ * Luokka kutsuu jokaisen olion piirrä metodia
+ * 
+ */
 
 public class PongPiirto extends JPanel {
     
@@ -32,6 +36,7 @@ public class PongPiirto extends JPanel {
         p1.paint(graphics);
         p2.paint(graphics);
         repaint();
+        revalidate();
         
     }
     

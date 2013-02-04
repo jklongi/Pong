@@ -95,6 +95,14 @@ public class PongLiikkujaTest {
         }
         assertEquals(375, lautaVasen.getY());
     }
-    
+//    @Test
+//    public void osuukoLautaanToimii(){
+//        liikkuja.setxSuunta(1);
+//        liikkuja.setySuunta(0);
+//        Lauta lauta = new Lauta(210, 281);
+//        liikkuja.liikutaPalloa();
+//        liikkuja.liikutaPalloa();
+//        assertEquals(-1, liikkuja.getxSuunta());
+//    }
     
 }

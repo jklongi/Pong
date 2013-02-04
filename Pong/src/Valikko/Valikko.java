@@ -3,6 +3,11 @@ package Valikko;
 
 import javax.swing.SwingUtilities;
 
+/**
+ * Pelkkä main luokka joka luo käyttöliittymän
+ * 
+ */
+
 public class Valikko {
 
 

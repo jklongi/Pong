@@ -4,13 +4,19 @@ package Game;
 import java.awt.Color;
 import java.awt.Graphics;
 
+
+/**Luokasta luodaan Lauta-olio, jolla on x ja y koordinantti, 
+* sekä metodit piirrä ja liiku. Olio liikkuu suuntaan jonka
+* arvo on true 
+*/
+
 public class Lauta {
     private int x;
     private int y;
     
     private boolean ylos;
     private boolean alas;
-    
+
     public Lauta(int x, int y){
         this.x = x;
         this.y = y;

@@ -3,6 +3,12 @@ package Game;
 import java.awt.Component;
 import java.util.Random;
 
+/** Luokka on tietoinen kaikkien pong-pelin olioiden sijainnista ja 
+ * liikuttaa niitä 
+ * 
+ * @author joonaslongi
+ */
+
 public class PongLiikkuja {
     private Pallo pallo;
     private Lauta oikea;
@@ -22,10 +28,12 @@ public class PongLiikkuja {
         this.oikea = oikea;
         this.vasen = vasen;
         this.component = component;
-        this.random = new Random();
-
-        
+        this.random = new Random(); 
     }    
+    
+    /**
+     * Metodi arpoo aloitussuunnan neljästä vaihtoehdosta
+     */
     
     public void arvoSuunta(){
         int a = random.nextInt(4); 
@@ -48,6 +56,11 @@ public class PongLiikkuja {
 
         
     }
+    /**
+     * Metodi tarkistaa, mikäli pallo osuu seinään
+     * Jos osuu, se vaihtaa sen x tai y suunnan 
+     * simuloiden "kimpoamista"
+     */
     
     public void osuukoSeinaan(){
         if(pallo.getX() <= 0){
@@ -55,6 +68,7 @@ public class PongLiikkuja {
         }
         if(pallo.getX() >= 585){
             this.xSuunta = -1;
+            p1.setPiste();
         }
         if( pallo.getY() <= 0){
             this.ySuunta = 1;
@@ -63,6 +77,11 @@ public class PongLiikkuja {
             this.ySuunta = -1;
         }
     }
+    
+    /**
+     * Liikuttaa lautaa suuntaan, jonka arvo on true
+     * 
+     */
     
     public void liikutaLautaa(){
         if(this.vasen.ylos() == true){
@@ -78,6 +97,12 @@ public class PongLiikkuja {
             this.oikea.liiku(1);
         }
     }
+    
+    /**
+     * Tarkistaa osuuko pallo lautaan
+     * Jos jokin kohta pallon reunasta osuu lautaan,
+     * metodi muuttaa sen x suunnan vastakkaiseksi
+     */
      
     public void osuukoLautaan(){
         if(vasen.getX() + 12 == pallo.getX() ){
@@ -98,6 +123,11 @@ public class PongLiikkuja {
             } 
         }
     } 
+    
+    /**
+     * Metodi liikuttaa palloa x ja y suuntien arvojen mukaan
+     * muut metodit määräävät suunnan
+     */
     
     public void liikutaPalloa(){
         pallo.liiku(this.xSuunta,this.ySuunta);

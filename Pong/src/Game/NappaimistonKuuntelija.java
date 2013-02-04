@@ -3,10 +3,15 @@ package Game;
 import java.awt.event.KeyEvent;
 import java.awt.event.KeyListener;
 
+/**Kuuntelee näppäimistöstä tulevia painalluksia, sekä näppäimen
+* vapautuksia, sekä asettaa nille toiminnot
+* 
+*/
 
 public class NappaimistonKuuntelija implements KeyListener{
     private Lauta lautaVasen;
     private Lauta lautaOikea;
+
 
     
     public NappaimistonKuuntelija(Lauta lautaVasen,Lauta lautaOikea){
@@ -20,7 +25,13 @@ public class NappaimistonKuuntelija implements KeyListener{
     public void keyTyped(KeyEvent ke) {
         
     }
-
+    
+    /**Painaessa näppäin alas, asettaa metodi sitä näppäintä
+     * vastaavan suunnan arvoksi true ja vastakkaisen suunnan false
+     * 
+     * @param ke 
+     */
+    
     @Override
     public void keyPressed(KeyEvent ke) {
         if (ke.getKeyCode() == KeyEvent.VK_W){
@@ -40,7 +51,15 @@ public class NappaimistonKuuntelija implements KeyListener{
             lautaOikea.setAlas(false);
         }
     }
-
+    
+    
+    /**Kun näppäin vapautetaan, metodi asettaa sitä vastaavan
+     * suunnan arvoksi false
+     * 
+     * @param ke 
+     */
+    
+    
     @Override
     public void keyReleased(KeyEvent ke) {
         if (ke.getKeyCode() == KeyEvent.VK_W){

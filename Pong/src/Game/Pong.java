@@ -4,9 +4,14 @@ package Game;
 import java.awt.Color;
 import java.awt.Container;
 import java.awt.Dimension;
-import java.awt.KeyboardFocusManager;
 import javax.swing.JFrame;
-import javax.swing.SwingUtilities;
+
+/**Luokka alustaa pong pelin, luo laudat, pallon, pisteet,
+ * piirtoalusta, käyttöliittymän, näppäimistönkuuntelijan,
+ * sekä käynnistää itse pelin
+ * 
+ * @author joonaslongi
+ */
 
 
 

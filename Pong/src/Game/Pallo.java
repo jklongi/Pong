@@ -4,11 +4,17 @@ package Game;
 import java.awt.Color;
 import java.awt.Graphics;
 
+    /**Luokasta luodaan pallo-olio, jolla on x ja y koordinantit, 
+    * joita voi muuttaa. Liikut metodi siirtää pallon x ja y koordinantteja
+    * x ja y muutoksen verran.
+    * 
+    */
 
 public class Pallo{
     
     private int x;
     private int y;
+    
     
     public Pallo(){
         this.x = 280;
