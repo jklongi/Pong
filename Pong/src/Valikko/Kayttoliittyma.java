@@ -70,7 +70,8 @@ public class Kayttoliittyma extends JFrame implements Runnable{
     @Override
     public void run() {
 
-        
+        Musiikki musiikki = new Musiikki();
+        musiikki.play();
 
         frame = new JFrame("Valikko");
         frame.setPreferredSize(new Dimension(600,450));
