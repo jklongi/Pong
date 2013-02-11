@@ -7,6 +7,7 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import javax.swing.JButton;
 import javax.swing.JFrame;
+import javax.swing.JTextField;
 
 /**
  * Luokka kuuntelee nappien klikkauksen ja asettaa
@@ -18,11 +19,15 @@ public class Kuuntelija implements ActionListener {
     private JButton aloita;
     private JButton lopeta;
     private JFrame frame;
+    private JTextField pelaaja1;
+    private JTextField pelaaja2;
     
-    public Kuuntelija(JButton aloita, JButton lopeta, JFrame frame){
+    public Kuuntelija(JButton aloita, JButton lopeta,JTextField pelaaja1, JTextField pelaaja2, JFrame frame){
         this.aloita = aloita;
         this.lopeta = lopeta;
         this.frame = frame;
+        this.pelaaja1 = pelaaja1;
+        this.pelaaja2 = pelaaja2;
     }
     
     /**
@@ -35,12 +40,26 @@ public class Kuuntelija implements ActionListener {
     @Override
     public void actionPerformed(ActionEvent ae) {
         if(ae.getSource() == aloita){
-            Pong pong = new Pong();
+            String p1Nimi = "";
+            String p2Nimi = "";
+            
+            if(pelaaja1.getText().isEmpty()){
+                p1Nimi = "Nimetön";
+            } else{
+                p1Nimi = pelaaja1.getText();
+            }
+            if(pelaaja2.getText().isEmpty()){
+                p2Nimi = "Nimetön";
+            } else{
+                p2Nimi = pelaaja2.getText();
+            }
+
+            Pong pong = new Pong(p1Nimi, p2Nimi);
             pong.run();
             
         }
         if(ae.getSource() == lopeta){
-            frame.dispose();
+            System.exit(0);
         }
         
     

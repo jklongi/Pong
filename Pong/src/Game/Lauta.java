@@ -16,7 +16,13 @@ public class Lauta {
     
     private boolean ylos;
     private boolean alas;
-
+    
+    /**
+     * Laudalla on x ja y koordinantit, sekä boolean muuttuja
+     * joka kertoo mihin suuntaan lauta on menossa
+     * @param x
+     * @param y 
+     */
     public Lauta(int x, int y){
         this.x = x;
         this.y = y;
@@ -33,17 +39,22 @@ public class Lauta {
         graphics.setColor(new Color(56, 199, 229));
         graphics.fill3DRect(this.x, this.y, 15, 55, true);
     }
+    /**
+     * Liikuttaa lautaa yMuutoksen mukaisesti tarkistaen samalla ettei
+     * lauta jää jumiin ääriarvokohdissa
+     * @param yMuutos 
+     */
     public void liiku(int yMuutos){
-        if(this.y > 2 && this.y < 378){
+        if(this.y > 0 && this.y < 343){
             this.y += yMuutos; 
         }
-        if(this.y <= 2){
+        if(this.y <= 0){
             this.ylos = false;
-            this.y = 5;
+            this.y = 1;
         }
-        if(this.y >= 378){
+        if(this.y >= 343){
             this.alas = false;
-            this.y = 375;
+            this.y = 342;
         }
     }
     

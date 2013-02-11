@@ -15,10 +15,10 @@ public class PongPiirto extends JPanel {
     private Pallo pallo;
     private Lauta vasen;
     private Lauta oikea;
-    private Pisteet p1;
-    private Pisteet p2;
+    private Pelaaja p1;
+    private Pelaaja p2;
     
-    public PongPiirto(Pallo pallo, Lauta vasen, Lauta oikea, Pisteet p1, Pisteet p2){
+    public PongPiirto(Pallo pallo, Lauta vasen, Lauta oikea, Pelaaja p1, Pelaaja p2){
         super.setBackground(Color.DARK_GRAY);
         this.pallo = pallo;
         this.vasen = vasen;
@@ -26,7 +26,10 @@ public class PongPiirto extends JPanel {
         this.p1 = p1;
         this.p2 = p2;
     }
-
+    /** Metodi piirtää kaikki komponentit
+     * 
+     * @param graphics 
+     */
     @Override
     protected void paintComponent(Graphics graphics){
         super.paintComponent(graphics);

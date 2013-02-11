@@ -8,10 +8,10 @@ import org.junit.BeforeClass;
 import org.junit.Test;
 import static org.junit.Assert.*;
 
-public class PisteetTest {
-    private Pisteet pisteet;
+public class PelaajaTest {
+    private Pelaaja pisteet;
     
-    public PisteetTest() {
+    public PelaajaTest() {
     }
     
     @BeforeClass
@@ -24,7 +24,7 @@ public class PisteetTest {
     
     @Before
     public void setUp() {
-        this.pisteet = new Pisteet(10,5);
+        this.pisteet = new Pelaaja("pekka" , 10,5);
     }
     
     @After

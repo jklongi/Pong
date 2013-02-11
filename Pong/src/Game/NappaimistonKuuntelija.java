@@ -19,8 +19,7 @@ public class NappaimistonKuuntelija implements KeyListener{
         this.lautaOikea = lautaOikea;
 
     }
-
-
+    
     @Override
     public void keyTyped(KeyEvent ke) {
         

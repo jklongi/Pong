@@ -13,8 +13,8 @@ public class PongLiikkuja {
     private Pallo pallo;
     private Lauta oikea;
     private Lauta vasen;
-    private Pisteet p1;
-    private Pisteet p2;
+    private Pelaaja p1;
+    private Pelaaja p2;
     
     private Component component;
     
@@ -23,12 +23,15 @@ public class PongLiikkuja {
     
     private Random random;
     
-    public PongLiikkuja(Pallo pallo, Lauta oikea, Lauta vasen, Component component, Pisteet p1, Pisteet p2){
+    public PongLiikkuja(Pallo pallo, Lauta oikea, Lauta vasen, Component component, Pelaaja p1, Pelaaja p2){
         this.pallo = pallo;
         this.oikea = oikea;
         this.vasen = vasen;
+        this.p1 = p1;
+        this.p2 = p2;
         this.component = component;
-        this.random = new Random(); 
+        this.random = new Random();
+        
     }    
     
     /**
@@ -63,8 +66,10 @@ public class PongLiikkuja {
      */
     
     public void osuukoSeinaan(){
+        
         if(pallo.getX() <= 0){
             this.xSuunta = 1;
+            p2.setPiste();
         }
         if(pallo.getX() >= 585){
             this.xSuunta = -1;
@@ -73,7 +78,7 @@ public class PongLiikkuja {
         if( pallo.getY() <= 0){
             this.ySuunta = 1;
         }
-        if(pallo.getY() >= 415){
+        if(pallo.getY() >= 385){
             this.ySuunta = -1;
         }
     }
@@ -123,6 +128,36 @@ public class PongLiikkuja {
             } 
         }
     } 
+    /**
+     * Tarkistaa osuuko laudan reunaan.
+     * osuessa vaihtaa y suunnan.
+     */
+    
+    public void osuukoLaudanReunaan(){
+        if(vasen.getY() == pallo.getY() + 14){
+            if(pallo.getX() <= vasen.getX() + 15){
+                this.ySuunta = -1;  
+            }
+        }
+        
+        if(vasen.getY() + 55 == pallo.getY()){
+            if(pallo.getX() <= vasen.getX() +15){
+                this.ySuunta = 1;
+            }
+        }
+        
+        if(oikea.getY() == pallo.getY() + 14){
+            if(pallo.getX() +15 >= oikea.getX()){
+                this.ySuunta = -1;
+            }
+        }
+        
+        if(oikea.getY() + 55 == pallo.getY()){
+            if(pallo.getX()+15 >= oikea.getX()){
+                this.ySuunta = 1;
+            }
+        }
+    }
     
     /**
      * Metodi liikuttaa palloa x ja y suuntien arvojen mukaan

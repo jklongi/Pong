@@ -9,18 +9,30 @@ import java.awt.Graphics;
      * sekä draw String metodi.
      */
 
-public class Pisteet {
+public class Pelaaja {
     
     private int pisteet;
     private int x;
     private int y;
+    private String nimi;
     
+    /**
+     * Pelaajalla on nimi ja pisteet, pisteet ovat alussa 0
+     * x ja y koordinantit kertovat mihin nimi ja tulos piirretään
+     * @param nimi
+     * @param x
+     * @param y 
+     */
     
-    public Pisteet(int x, int y){
+    public Pelaaja(String nimi, int x, int y){
+        this.nimi = nimi;
         this.pisteet = 0;
         this.x = x;
         this.y = y;
         
+    }
+    public String getNimi(){
+        return this.nimi;
     }
     
     public void setPiste(){
@@ -32,9 +44,9 @@ public class Pisteet {
     }
     public void paint(Graphics g){
         g.setColor(Color.WHITE);
-        Font f = new Font(null, Font.ITALIC, 18);
+        Font f = new Font(null, Font.ITALIC, 16);
         g.setFont(f);
-        g.drawString("" + this.pisteet, x, y);
+        g.drawString(""+ this.nimi + " " + this.pisteet, x, y);
         
     }
     

@@ -1,0 +1,11 @@
+Mikko 1                Toni 2
+Jussi 0                Jyri 0
+Nimetön 1                Nimetön 1
+Nimetön 1                Nimetön 2
+Nimetön 1                Nimetön 1
+
+Nimetön 2                Nimetön 3
+Nimetön 1                Nimetön 1
+Nimetön 2                Nimetön 3
+Nimetön 17                Nimetön 20
+Nimetön 4                Nimetön 6

@@ -17,8 +17,8 @@ public class PongLiikkujaTest {
     private Lauta lautaVasen;
     private Lauta lautaOikea;
     private Pallo pallo;
-    private Pisteet p1;
-    private Pisteet p2;
+    private Pelaaja p1;
+    private Pelaaja p2;
     private PongPiirto piirto;
     
     private PongLiikkuja liikkuja;
@@ -39,8 +39,8 @@ public class PongLiikkujaTest {
         this.lautaVasen = new Lauta(10, 185);
         this.lautaOikea = new Lauta(575, 185);
         this.pallo = new Pallo();
-        this.p1 = new Pisteet(50, 30);
-        this.p2 = new Pisteet(550, 30);
+        this.p1 = new Pelaaja("matti",50, 30);
+        this.p2 = new Pelaaja("pekka",550, 30);
         this.piirto = new PongPiirto(pallo, lautaVasen, lautaOikea, p1, p1);
         this.liikkuja = new PongLiikkuja(pallo, lautaOikea, lautaVasen,piirto, p1, p2);
     }

@@ -36,6 +36,7 @@ public class PongLogiikka{
                 liikkuja.liikutaPalloa();
                 liikkuja.osuukoSeinaan();
                 liikkuja.osuukoLautaan();
+                liikkuja.osuukoLaudanReunaan();
             }
             
         };
