@@ -50,7 +50,6 @@ public class Pong extends JFrame implements Runnable{
         
         JButton aloita = new JButton("Aloita");
         aloita.setForeground(new Color(254, 49, 167));
-        aloita.setBackground(Color.yellow);
         panel.add(aloita);
         
         JButton lopeta = new JButton("Lopeta");
