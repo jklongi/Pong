@@ -8,3 +8,4 @@ Ma 4.2.			6h		Valikkoon nappeja, dokumentointia
 Ti 5.2 			4h 		Taustamusiikki toimii, ei looppaa
 su 10.2			5h 		Kaavioita, luokkien parantelua
 ma 11.2			6h 		Lisää kaavioita, dokumentointia
+la 16.2 		4h		Ohjeet lisätty, luokkia paranneltu

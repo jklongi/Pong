@@ -82,7 +82,7 @@ public class Kayttoliittyma extends JFrame implements Runnable{
      * @return JPanel
      */
     private JPanel luoValikko() {
-        JPanel panel = new JPanel(new GridLayout(1, 2));
+        JPanel panel = new JPanel(new GridLayout(1, 3));
         
         JButton aloita = new JButton("Aloita");
         aloita.setForeground(new Color(254, 49, 167));
@@ -92,10 +92,15 @@ public class Kayttoliittyma extends JFrame implements Runnable{
         panel.add(lopeta);
         lopeta.setForeground(new Color(56, 199, 229));
         
+        JButton ohjeet = new JButton("Ohjeet");
+        panel.add(ohjeet);
+        ohjeet.setForeground(new Color(56, 199, 229));
         
-        Kuuntelija kuuntelija = new Kuuntelija(aloita, lopeta, pelaaja1, pelaaja2, frame);
+        
+        Kuuntelija kuuntelija = new Kuuntelija(aloita, lopeta, ohjeet, pelaaja1, pelaaja2, frame);
         aloita.addActionListener(kuuntelija);
         lopeta.addActionListener(kuuntelija);
+        ohjeet.addActionListener(kuuntelija);
         
         return panel;
     }

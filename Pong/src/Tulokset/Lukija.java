@@ -1,17 +1,16 @@
 package Tulokset;
 
-import java.io.BufferedReader;
 import java.io.File;
-import java.io.FileReader;
+import java.util.ArrayList;
 import java.util.Scanner;
 
 
 public class Lukija {
     
-    private String tulokset;
+    private ArrayList<String> tulos;
     
     public Lukija(){
-        this.tulokset = "\n Viimeisimmät pelit: \n\n";
+        this.tulos = new ArrayList<String>();
     }
     
     /**
@@ -26,7 +25,7 @@ public class Lukija {
             Scanner lukija = new Scanner(tiedosto);
             while(lukija.hasNextLine()){
                 String rivi = lukija.nextLine();
-                tulokset += " " + rivi + "\n";
+                tulos.add(0, rivi);
                 
             }
             
@@ -34,10 +33,27 @@ public class Lukija {
             System.out.println("Filreader: " + e);
         }
         
+        siisti();
         
+        return makeString();
         
+    }
+    public void siisti(){
+        if(tulos.size() <= 16){
+            return;
+        }
+        if(this.tulos.size() > 16){
+            tulos.remove(tulos.size()-1);
+        }
+        siisti();
+    }
+    
+    public String makeString(){
+        String tulokset = "";
+        for (String rivi: tulos) {
+            tulokset = tulokset + rivi+"\n";
+        }
         return tulokset;
-        
     }
     
 }

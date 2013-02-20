@@ -18,21 +18,26 @@ public class Kuuntelija implements ActionListener {
     
     private JButton aloita;
     private JButton lopeta;
+    private JButton ohjeet;
     private JFrame frame;
     private JTextField pelaaja1;
     private JTextField pelaaja2;
     
-    public Kuuntelija(JButton aloita, JButton lopeta,JTextField pelaaja1, JTextField pelaaja2, JFrame frame){
+    public Kuuntelija(JButton aloita, JButton lopeta,JButton ohjeet, JTextField pelaaja1, JTextField pelaaja2, JFrame frame){
         this.aloita = aloita;
         this.lopeta = lopeta;
         this.frame = frame;
         this.pelaaja1 = pelaaja1;
         this.pelaaja2 = pelaaja2;
+        this.ohjeet = ohjeet;
     }
     
     /**
      * Lopeta napista koko frame sulkeutuu
      * Aloita napista itse pong-peli alkaa
+     * 
+     * Mikäli pelaajat eivät kirjoita mitään tekstikenttään
+     * nimeksi valitaan "nimetön"
      * 
      * @param ae 
      */
@@ -61,7 +66,10 @@ public class Kuuntelija implements ActionListener {
         if(ae.getSource() == lopeta){
             System.exit(0);
         }
-        
+        if(ae.getSource() == ohjeet){
+            Ohjeet ohj = new Ohjeet();
+            ohj.run();
+        }
     
         
 
