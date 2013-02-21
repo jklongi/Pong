@@ -1,5 +1,5 @@
 
-package Game;
+package pong.domain;
 
 import java.awt.Color;
 import java.awt.Font;
@@ -42,9 +42,13 @@ public class Pelaaja {
     public int getPisteet(){
         return this.pisteet;
     }
+    /**
+     * Piirtää Stringinä nimen + pisteet this.x, this.y kohdalle
+     * @param g 
+     */
     public void paint(Graphics g){
-        g.setColor(Color.WHITE);
-        Font f = new Font(null, Font.ITALIC, 16);
+        g.setColor(new Color(56, 199, 229));
+        Font f = new Font("Helvetica", Font.ITALIC, 14);
         g.setFont(f);
         g.drawString(""+ this.nimi + " " + this.pisteet, x, y);
         
@@ -53,5 +57,10 @@ public class Pelaaja {
     @Override
     public String toString(){
         return this.x + ", " + this.y + ", " + this.pisteet;
+    }
+
+    public void setNimi(String nimi) {
+        this.nimi = nimi;
+        this.pisteet = 0;
     }
 }

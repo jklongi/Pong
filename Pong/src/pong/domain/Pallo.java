@@ -1,4 +1,4 @@
-package Game;
+package pong.domain;
 
 
 import java.awt.Color;
@@ -37,11 +37,21 @@ public class Pallo{
         g.fill3DRect(this.x, this.y, 15, 15, true);
         
     }   
+    public void reset(){
+        this.x = 280;
+        this.y = 210;
+    }
     public int getX(){
         return this.x;
     }
     public int getY(){
         return this.y;
+    }
+    public void setX(int x){
+        this.x = x;
+    }
+    public void setY(int y){
+        this.y = y;
     }
 
 }

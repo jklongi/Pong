@@ -1,4 +1,4 @@
-package Game;
+package pong.domain;
 
 
 import java.awt.Color;
@@ -56,6 +56,10 @@ public class Lauta {
             this.alas = false;
             this.y = 342;
         }
+    }
+    public void reset(int x, int y){
+        this.x = x;
+        this.y = y;
     }
     
     public boolean ylos(){

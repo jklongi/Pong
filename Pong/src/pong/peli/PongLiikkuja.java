@@ -1,7 +1,8 @@
-package Game;
+package pong.peli;
 
-import java.awt.Component;
 import java.util.Random;
+import pong.domain.Lauta;
+import pong.domain.Pallo;
 
 /** Luokka on tietoinen kaikkien pong-pelin olioiden sijainnista ja 
  * liikuttaa niitä 
@@ -13,23 +14,18 @@ public class PongLiikkuja {
     private Pallo pallo;
     private Lauta oikea;
     private Lauta vasen;
-    private Pelaaja p1;
-    private Pelaaja p2;
-    
-    private Component component;
+    private Peli peli;
     
     private int xSuunta;
     private int ySuunta;
     
     private Random random;
     
-    public PongLiikkuja(Pallo pallo, Lauta oikea, Lauta vasen, Component component, Pelaaja p1, Pelaaja p2){
-        this.pallo = pallo;
-        this.oikea = oikea;
-        this.vasen = vasen;
-        this.p1 = p1;
-        this.p2 = p2;
-        this.component = component;
+    public PongLiikkuja(Peli peli){
+        this.peli = peli;
+        this.pallo = peli.getPallo();
+        this.oikea = peli.getLauta(2);
+        this.vasen = peli.getLauta(1);
         this.random = new Random();
         
     }    
@@ -41,23 +37,21 @@ public class PongLiikkuja {
     public void arvoSuunta(){
         int a = random.nextInt(4); 
         if(a == 0){
-            this.xSuunta = 1;
-            this.ySuunta = 1;
+            setSuunnat(1,1);
         }
-        if(a == 1){
-            this.xSuunta = -1;
-            this.ySuunta = -1;
+        else if(a == 1){
+            setSuunnat(-1,-1);
         }
-        if(a == 2){
-            this.xSuunta = -1;
-            this.ySuunta = 1;
+        else if(a == 2){
+            setSuunnat(-1,1);
         }
-        if(a == 3){
-            this.xSuunta = 1;
-            this.ySuunta = -1;
-        }
-
-        
+        else {
+            setSuunnat(1,-1);
+        }       
+    }
+    public void setSuunnat(int x, int y){
+        this.xSuunta = x;
+        this.ySuunta = y;
     }
     /**
      * Metodi tarkistaa, mikäli pallo osuu seinään
@@ -69,11 +63,11 @@ public class PongLiikkuja {
         
         if(pallo.getX() <= 0){
             this.xSuunta = 1;
-            p2.setPiste();
+            peli.asetaPistePelaajalle(2);
         }
         if(pallo.getX() >= 585){
             this.xSuunta = -1;
-            p1.setPiste();
+            peli.asetaPistePelaajalle(1);
         }
         if( pallo.getY() <= 0){
             this.ySuunta = 1;
@@ -110,31 +104,36 @@ public class PongLiikkuja {
      */
      
     public void osuukoLautaan(){
-        if(vasen.getX() + 12 == pallo.getX() ){
-            if(vasen.getY() < pallo.getY() && vasen.getY() +55 > pallo.getY()){    
+        // Pallon leveys on 15
+        if(vasen.getX() + 15 == pallo.getX() ){
+            //Laudan pituus on 55
+            //Tämä tarkistaa osuuko pallon yläkulma lautaan
+            if(vasen.getY() <= pallo.getY() && vasen.getY() +55 >= pallo.getY()){    
                 this.xSuunta = 1;
             } 
-            if(vasen.getY() < pallo.getY() +15 && vasen.getY() +55 > pallo.getY()){    
+            //Tämä tarkistaa osuuko pallon alakulma lautaan
+            if(vasen.getY() <= pallo.getY() +15 && vasen.getY() +55 >= pallo.getY()){    
                 this.xSuunta = 1;
             }  
         }
         
-        if(oikea.getX() == pallo.getX() +12 ){
-            if(oikea.getY() < pallo.getY() && oikea.getY() +55 > pallo.getY()){    
+        if(oikea.getX() == pallo.getX() +15 ){
+            if(oikea.getY() <= pallo.getY() && oikea.getY() +55 >= pallo.getY()){    
                 this.xSuunta = -1;
             }
-            if(oikea.getY() < pallo.getY() +15 && oikea.getY() +55 > pallo.getY()){    
+            if(oikea.getY() <= pallo.getY() +15 && oikea.getY() +55 >= pallo.getY()){    
                 this.xSuunta = -1;
             } 
         }
     } 
+    
     /**
      * Tarkistaa osuuko laudan reunaan.
      * osuessa vaihtaa y suunnan.
      */
     
     public void osuukoLaudanReunaan(){
-        if(vasen.getY() == pallo.getY() + 14){
+        if(vasen.getY() == pallo.getY() + 15){
             if(pallo.getX() <= vasen.getX() + 15){
                 this.ySuunta = -1;  
             }
@@ -146,7 +145,7 @@ public class PongLiikkuja {
             }
         }
         
-        if(oikea.getY() == pallo.getY() + 14){
+        if(oikea.getY() == pallo.getY() + 15){
             if(pallo.getX() +15 >= oikea.getX()){
                 this.ySuunta = -1;
             }

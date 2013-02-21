@@ -1,5 +1,5 @@
 
-package Valikko;
+package pong.gui;
 
 import java.awt.Color;
 import java.awt.Container;
@@ -33,7 +33,7 @@ public class Ohjeet implements Runnable {
         container.setLayout(layout);
         String ohjeet1 = "1. Pelaaja: \n Paina näppäintä W liikuttaaksesi lautaasi ylös \n ja näppäintä "
                 + "S liikuttaaksesi lautaa alas.";
-        String ohjeet2 = "2. Pelaaja: \n Paina näppäintä ↑ liikuttaaksesi lautaasi ylös \n ja näppäintä "
+        String ohjeet2 = "2. Pelaaja: \r\n Paina näppäintä ↑ liikuttaaksesi lautaasi ylös \n ja näppäintä "
                 + "↓ liikuttaaksesi lautaa alas.";
         
         TextField area1 = new TextField(ohjeet1);

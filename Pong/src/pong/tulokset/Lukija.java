@@ -1,4 +1,4 @@
-package Tulokset;
+package pong.tulokset;
 
 import java.io.File;
 import java.util.ArrayList;
@@ -7,6 +7,7 @@ import java.util.Scanner;
 
 public class Lukija {
     
+    public static final int MAKSIMIKOKO = 15;
     private ArrayList<String> tulos;
     
     public Lukija(){
@@ -18,10 +19,10 @@ public class Lukija {
      * @return 
      */
     
-    public String lue(){
+    public ArrayList<String> lue(){
         
         try{
-            File tiedosto = new File("src/Tulokset/score.txt");
+            File tiedosto = new File("src/pong/tulokset/score.txt");
             Scanner lukija = new Scanner(tiedosto);
             while(lukija.hasNextLine()){
                 String rivi = lukija.nextLine();
@@ -35,14 +36,14 @@ public class Lukija {
         
         siisti();
         
-        return makeString();
+        return tulos;
         
     }
     public void siisti(){
-        if(tulos.size() <= 16){
+        if(tulos.size() <= MAKSIMIKOKO){
             return;
         }
-        if(this.tulos.size() > 16){
+        if(this.tulos.size() > MAKSIMIKOKO){
             tulos.remove(tulos.size()-1);
         }
         siisti();

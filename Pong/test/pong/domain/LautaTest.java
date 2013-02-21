@@ -2,8 +2,9 @@
  * To change this template, choose Tools | Templates
  * and open the template in the editor.
  */
-package Game;
+package pong.domain;
 
+import pong.domain.Lauta;
 import org.junit.After;
 import org.junit.AfterClass;
 import org.junit.Before;
@@ -65,23 +66,23 @@ public class LautaTest {
     @Test
     public void LautaOikeaEiMeneYliRajan(){
         oikea.liiku(-210);
-        assertEquals(3, oikea.getY());
+        assertEquals(1, oikea.getY());
     }
     
     @Test
     public void LautaOikeaEiMeneAliRajan(){
         oikea.liiku(195);
-        assertEquals(377, oikea.getY());
+        assertEquals(342, oikea.getY());
     }
     @Test
     public void LautaVasenEiMeneYliRajan(){
         vasen.liiku(-210);
-        assertEquals(3, vasen.getY());
+        assertEquals(1, vasen.getY());
     }
     
     @Test
     public void LautavasenEiMeneAliRajan(){
         vasen.liiku(195);
-        assertEquals(377, vasen.getY());
+        assertEquals(342, vasen.getY());
     }
 }

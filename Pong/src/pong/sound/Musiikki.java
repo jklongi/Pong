@@ -1,4 +1,4 @@
-package Sound;
+package pong.sound;
 
 
 
@@ -15,7 +15,7 @@ public class Musiikki {
     public void play(){
 
         try{
-            InputStream in = new FileInputStream("src/Sound/PongBeat.wav");
+            InputStream in = new FileInputStream("src/pong/sound/PongBeat.wav");
             AudioStream as = new AudioStream(in);
             AudioPlayer.player.start(as); 
             

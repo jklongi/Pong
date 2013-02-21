@@ -1,7 +1,8 @@
-package Game;
+package pong.gui;
 
 import java.awt.event.KeyEvent;
 import java.awt.event.KeyListener;
+import pong.domain.Lauta;
 
 /**Kuuntelee näppäimistöstä tulevia painalluksia, sekä näppäimen
 * vapautuksia, sekä asettaa nille toiminnot
@@ -17,12 +18,10 @@ public class NappaimistonKuuntelija implements KeyListener{
     public NappaimistonKuuntelija(Lauta lautaVasen,Lauta lautaOikea){
         this.lautaVasen = lautaVasen;
         this.lautaOikea = lautaOikea;
-
     }
     
     @Override
     public void keyTyped(KeyEvent ke) {
-        
     }
     
     /**Painaessa näppäin alas, asettaa metodi sitä näppäintä
