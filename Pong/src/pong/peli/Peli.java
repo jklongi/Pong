@@ -5,8 +5,6 @@
 package pong.peli;
 
 import java.awt.Graphics;
-import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
 import javax.swing.Timer;
 import pong.domain.Lauta;
 import pong.domain.Pallo;
@@ -16,7 +14,8 @@ import pong.gui.Piirtoalusta;
 import pong.tulokset.Tallentaja;
 
 /**
- *
+ * Luokka luo kaikki vaadittavat oliot
+ * pelin käynnistykseen
  * @author Joonas
  */
 public class Peli {
@@ -43,7 +42,13 @@ public class Peli {
         ajanKuuntelija = new AjanKuuntelija(liikkuja);
         timer = new Timer(4, ajanKuuntelija);
     }
-    
+    /**
+     * luo pelaajat annetuilla nimillä, resetoi pallon ja lautojen
+     * paikat, sekä päivittää piirtoalustan ja käyttöliittymän containerin,
+     * asettaa käynnissa trueksi, arpoo aloitussuunnan ja käynnistää ajastimen
+     * @param p1Nimi
+     * @param p2Nimi 
+     */
     public void uusiPeli(String p1Nimi, String p2Nimi) {
         luoPelaajat(p1Nimi, p2Nimi);
         pallo.reset();
@@ -61,7 +66,11 @@ public class Peli {
         this.p1 = new Pelaaja(p1Nimi, 50, 30);
         this.p2 = new Pelaaja(p2Nimi, 480, 30);
     }
-    
+    /**
+     * Asettaa boolean käynnissä falseksi, tallentaa tulokset
+     * pelaajille 1 ja 2, päivittää käyttöliittymän containerin,
+     * sekä piirtoalustan
+     */
     public void lopeta() {
         kaynnissa = false;
         timer.stop();
@@ -86,7 +95,12 @@ public class Peli {
     public void setKayttoliittyma(Kayttoliittyma kayttis) {
         this.kayttoliittyma = kayttis;
     }
-    
+    /**
+     * Palauttaa laudan 1, jos numero = 1, 
+     * muussa tapauksessa palauttaa laudan 2
+     * @param numero
+     * @return 
+     */
     public Lauta getLauta(int numero) {
         if (numero == 1){
             return lautaVasen;
@@ -94,7 +108,13 @@ public class Peli {
             return lautaOikea;
         }
     }
-        
+    /**
+     * Palauttaa pelaajan 1 jos numero = 1, muuten
+     * palauttaa pelaajan 2
+     * @param numero
+     * @return 
+     */
+    
     public Pelaaja getPelaaja(int numero) {
         if (numero == 1){
             return p1;
@@ -102,7 +122,10 @@ public class Peli {
             return p2;
         }
     }
-
+    /**
+     * Kutsuu jokaisen olion paint metodia
+     * @param graphics 
+     */
     public void maalaa(Graphics graphics) {
         pallo.paint(graphics);
         lautaVasen.piirra(graphics);
@@ -110,6 +133,11 @@ public class Peli {
         p1.paint(graphics);
         p2.paint(graphics);
     }
+    /**
+     * Asettaa yhden pisteen pelaajalle 1, jos pelaajaNumero = 1,
+     * muussa tapauksessa asettaa pisteen pelaajalle 2
+     * @param pelaajanNumero 
+     */
     public void asetaPistePelaajalle(int pelaajanNumero){
         if(pelaajanNumero == 1){
             p1.setPiste();

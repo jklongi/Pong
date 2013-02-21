@@ -35,6 +35,10 @@ public class Lauta {
     public int getY(){
         return this.y;
     }
+    /**
+     * Piirtää laudan this.x, this.y kohtaan
+     * @param graphics 
+     */
     public void piirra(Graphics graphics){
         graphics.setColor(new Color(56, 199, 229));
         graphics.fill3DRect(this.x, this.y, 15, 55, true);

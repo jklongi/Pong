@@ -6,7 +6,7 @@ import java.io.IOException;
 import pong.domain.Pelaaja;
 
 /**
- *
+ * Tallentaa pelitulokset
  * @author joonaslongi
  */
 public class Tallentaja {

@@ -8,8 +8,9 @@ import pong.peli.Peli;
 import pong.tulokset.Lukija;
 
 /**
- * Luokka kutsuu jokaisen olion piirrä metodia
- *
+ * Luokka kutsuu pelin piirrä metodia, joka taas
+ * kutsuu jokaisen olion omaa piirrä metodia
+ * @author Joonas
  */
 public class Piirtoalusta extends JPanel {
 
@@ -21,8 +22,8 @@ public class Piirtoalusta extends JPanel {
     }
 
     /**
-     * Metodi piirtää kaikki komponentit
-     *
+     * Metodi maalaa oikea komponentit
+     * riippuen onko peli käynnissä
      * @param graphics
      */
     @Override
@@ -33,7 +34,11 @@ public class Piirtoalusta extends JPanel {
             maalaaTulokset(graphics);
         }
     }
-
+    /**
+     * Kutsuu pelin maalaa metodia, joka kutsuu
+     * olioiden maalaa metodia
+     * @param graphics 
+     */
     private void maalaaPeli(Graphics graphics) {
         graphics.setColor(Color.darkGray);
         graphics.fillRect(0, 0, 600, 450);
@@ -41,7 +46,11 @@ public class Piirtoalusta extends JPanel {
         repaint();
         revalidate();
     }
-
+    /**
+     * Lukee tulokset lukijan avulla listaan, ja tämän jälkeen
+     * piirtää ne 
+     * @param graphics 
+     */
     private void maalaaTulokset(Graphics graphics) {
         graphics.setColor(Color.darkGray);
         graphics.fillRect(0, 0, 600, 450);

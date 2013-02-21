@@ -8,7 +8,8 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
 /**
- *
+ * Luokka käyttää liikkujan metodeja luoden
+ * pelin liikkeen
  * @author Joonas
  */
 public class AjanKuuntelija implements ActionListener {

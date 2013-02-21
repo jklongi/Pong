@@ -14,7 +14,7 @@ import pong.peli.Peli;
 import pong.sound.Musiikki;
 
 /**
- * Aloituskäyttöliittymä joka käynnistää tai lopettaa pelin nappia painamalla
+ * Käyttöliittymä joka käynnistää tai lopettaa pelin nappia painamalla
  *
  */
 public class Kayttoliittyma implements Runnable {
@@ -62,7 +62,12 @@ public class Kayttoliittyma implements Runnable {
         frame.setVisible(true);
         frame.paint(frame.getGraphics());
     }
-
+    /**
+     * Clearaa containerin kokonaan, ja piirtää uudelleen 
+     * sopivat komponentit riippuen onko peli.kaynnissa() true
+     * vai false
+     * @param container 
+     */
     private void luoKomponentit(Container container) {
         container.removeAll();
         if (peli.kaynnissa()) {
@@ -71,14 +76,21 @@ public class Kayttoliittyma implements Runnable {
             luoValikkoKomponentit(container);
         }
     }
-
+    /**
+     * Luo piirtoalusta, lisää sen, nimikentät, sekä alavalikon containeriin
+     * @param container 
+     */
     private void luoValikkoKomponentit(Container container) {
         piirtoalusta = new Piirtoalusta(peli);
         container.add(piirtoalusta, BorderLayout.CENTER);
         container.add(luoNimikentta(), BorderLayout.NORTH);
         container.add(luoValikko(), BorderLayout.SOUTH);
     }
-
+    /**
+     * Luo piirtoalustan, lisää näppäimistönkuuntelijan frameen,
+     * sekä piirtoalustan ja alavalikon containeriin
+     * @param container 
+     */
     private void luoPeliKomponentit(Container container) {
         piirtoalusta = new Piirtoalusta(peli);
         frame.addKeyListener(new NappaimistonKuuntelija(peli.getLauta(1), peli.getLauta(2)));
@@ -106,7 +118,6 @@ public class Kayttoliittyma implements Runnable {
         JButton ohjeet = new JButton("Ohjeet");
         ohjeet.setForeground(new Color(56, 199, 229));
         panel.add(ohjeet);
-
 
         NapinKuuntelija kuuntelija = new NapinKuuntelija(aloita, lopeta, ohjeet, pelaaja1, pelaaja2, peli);
         aloita.addActionListener(kuuntelija);

@@ -14,8 +14,7 @@ public class Pallo{
     
     private int x;
     private int y;
-    
-    
+
     public Pallo(){
         this.x = 280;
         this.y = 210;
@@ -30,6 +29,7 @@ public class Pallo{
     }
     /**
      * Piirtää neliön(Vaikka onkin pallo)
+     * this.y, this.x kohtaan
      * @param g 
      */
     public void paint(Graphics g){

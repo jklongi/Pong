@@ -5,8 +5,9 @@ import javax.swing.SwingUtilities;
 import pong.gui.Kayttoliittyma;
 
 /**
- * Pelkkä main luokka joka luo käyttöliittymän
- * 
+ * Main luokka, joka luo käyttöliittymän
+ * ja pelin, sekä asettaa pelille piirtoalustan
+ * ja käyttöliittymän
  */
 
 public class Main {

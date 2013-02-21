@@ -5,14 +5,15 @@ import java.awt.Color;
 import java.awt.Font;
 import java.awt.Graphics;
 
-    /**Luokasta luodaan pisteet-olio, jolla on int pisteiden arvo,
-     * sekä draw String metodi.
-     */
-
+/**
+ * Luokka luo pelaaja-olion, jolla on nimi, pisteet, sekä
+ * koordinantit johon tulokset piirretään pelin aikana
+ * @author Joonas
+ */
 public class Pelaaja {
     
     private int pisteet;
-    private int x;
+    private int x; 
     private int y;
     private String nimi;
     
@@ -57,10 +58,5 @@ public class Pelaaja {
     @Override
     public String toString(){
         return this.x + ", " + this.y + ", " + this.pisteet;
-    }
-
-    public void setNimi(String nimi) {
-        this.nimi = nimi;
-        this.pisteet = 0;
     }
 }

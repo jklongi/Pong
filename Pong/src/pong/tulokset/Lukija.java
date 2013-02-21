@@ -4,6 +4,10 @@ import java.io.File;
 import java.util.ArrayList;
 import java.util.Scanner;
 
+/**
+ * Lukee tekstitedostoja
+ * @author Joonas
+ */
 
 public class Lukija {
     
@@ -39,6 +43,10 @@ public class Lukija {
         return tulos;
         
     }
+    /**
+     * Siistii listasta rekursiivisesti kaikki alkiot
+     * yli maksimikoon
+     */
     public void siisti(){
         if(tulos.size() <= MAKSIMIKOKO){
             return;
@@ -48,13 +56,6 @@ public class Lukija {
         }
         siisti();
     }
-    
-    public String makeString(){
-        String tulokset = "";
-        for (String rivi: tulos) {
-            tulokset = tulokset + rivi+"\n";
-        }
-        return tulokset;
-    }
+
     
 }

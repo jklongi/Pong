@@ -9,6 +9,12 @@ import javax.swing.BoxLayout;
 import javax.swing.JFrame;
 import javax.swing.WindowConstants;
 
+/**
+ * Luokka luo uuden ikkunan jossa lukee ohjeet
+ * kummallekkin pelaajalle
+ * @author Joonas
+ */
+
 public class Ohjeet implements Runnable {
 
     private JFrame frame;
@@ -27,7 +33,11 @@ public class Ohjeet implements Runnable {
         frame.pack();
         frame.setVisible(true);
     }
-
+    /**
+     * Luo kaksi laatikkoa, joissa lukee kummankin pelaajan ohjeet 
+     * laudan liikutteluun
+     * @param container 
+     */
     private void luoKomponentit(Container container) {
         BoxLayout layout = new BoxLayout(container, BoxLayout.Y_AXIS);
         container.setLayout(layout);
