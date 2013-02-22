@@ -1,3 +1,6 @@
+Nimet�n 0                Nimet�n 0
+Nimet�n 0                Nimet�n 0
+Nimet�n 0                Nimet�n 0
 Vesi 0                Maa 0
 Puu 0                Kivi 0
 Kukka 0                Kasvi 0
@@ -9,7 +12,4 @@ Nimetön 0                Nimetön 0
 Nimetön 0                Nimetön 0
 Nimetön 1                Nimetön 0
 Nimetön 0                Nimetön 0
-Nimetön 0                Nimetön 0
-Nimetön 0                Nimetön 0
-Nimetön 1                Nimetön 1
 Nimetön 0                Nimetön 0
