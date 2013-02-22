@@ -17,6 +17,8 @@ public class NapinKuuntelija implements ActionListener {
     private JTextField pelaaja1;
     private JTextField pelaaja2;
     private Peli peli;
+    private Boolean ohjeetkaynnissa;
+    private Ohjeet ohj;
 
     /**
      * Konstruktori saa parametrinaan napit, tekstikentät, sekä pelin
@@ -36,6 +38,8 @@ public class NapinKuuntelija implements ActionListener {
         this.pelaaja2 = pelaaja2;
         this.ohjeet = ohjeet;
         this.peli = peli;
+        this.ohjeetkaynnissa = false;
+        this.ohj = new Ohjeet();
     }
 
     /**
@@ -65,8 +69,14 @@ public class NapinKuuntelija implements ActionListener {
         }
 
         if (ae.getSource() == ohjeet) {
-            Ohjeet ohj = new Ohjeet();
-            ohj.run();
+            if(!ohjeetkaynnissa){
+                ohj.run();
+                ohjeetkaynnissa = true;
+            } else{
+                ohj.sulje();
+                ohjeetkaynnissa = false;
+            }
+            
         }
 
     }

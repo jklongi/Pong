@@ -57,6 +57,12 @@ public class Ohjeet implements Runnable {
         container.add(area1);
         container.add(area2);
     }
+    /**
+     * Sulkee ohjeet
+     */
+    public void sulje(){
+        frame.dispose();
+    }
 
     public JFrame getFrame() {
         return frame;
