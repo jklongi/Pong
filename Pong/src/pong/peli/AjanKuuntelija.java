@@ -1,21 +1,22 @@
-/*
- * To change this template, choose Tools | Templates
- * and open the template in the editor.
- */
 package pong.peli;
 
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
 /**
- * Luokka käyttää liikkujan metodeja luoden
- * pelin liikkeen
+ * Luokka käyttää liikkujan metodeja luoden pelin liikkeen
+ *
  * @author Joonas
  */
 public class AjanKuuntelija implements ActionListener {
 
     private PongLiikkuja liikkuja;
 
+    /**
+     * Konstruktori saa PongLiikkujan parametrinaan.
+     *
+     * @param liikkuja
+     */
     public AjanKuuntelija(PongLiikkuja liikkuja) {
         this.liikkuja = liikkuja;
     }

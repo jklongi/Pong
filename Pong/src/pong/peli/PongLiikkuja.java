@@ -15,12 +15,13 @@ public class PongLiikkuja {
     private Lauta oikea;
     private Lauta vasen;
     private Peli peli;
-    
     private int xSuunta;
     private int ySuunta;
-    
     private Random random;
-    
+    /**
+     * Konstruktori saa parametrinaan pelin.
+     * @param peli 
+     */
     public PongLiikkuja(Peli peli){
         this.peli = peli;
         this.pallo = peli.getPallo();

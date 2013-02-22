@@ -14,6 +14,9 @@ public class Tallentaja {
     FileWriter fkirjoittaja;
     BufferedWriter kirjoittaja;
     
+    /**
+     * Konstruktori luo FileWriterin ja BufferedWriterin
+     */
     public Tallentaja(){
         try {
             this.fkirjoittaja = new FileWriter("src/pong/tulokset/score.txt", true);
@@ -22,7 +25,7 @@ public class Tallentaja {
         }
         this.kirjoittaja = new BufferedWriter(fkirjoittaja);
     }
-    /*
+    /**
      * Kirjoittaa score.txt tiedostoon tulokset
      */
     

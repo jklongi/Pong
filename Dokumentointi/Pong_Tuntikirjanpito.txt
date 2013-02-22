@@ -11,3 +11,4 @@ Ma 11.2			6h 		LisŠŠ kaavioita, dokumentointia
 La 16.2 		4h		Ohjeet lisŠtty, luokkia paranneltu
 Ke 20.2			8h		Luokkarakenne koki suuren muutoksen
 To 21.2			7h		Luokkarakenteen muuttumisen myötä kaaviot uusiksi.
+pe 22.2 		7h		Viimeistelyä ja dokumentointia

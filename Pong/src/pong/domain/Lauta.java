@@ -5,7 +5,8 @@ import java.awt.Color;
 import java.awt.Graphics;
 
 
-/**Luokasta luodaan Lauta-olio, jolla on x ja y koordinantti, 
+/**
+* Luokasta luodaan Lauta-olio, jolla on x ja y koordinantti, 
 * sekä metodit piirrä ja liiku. Olio liikkuu suuntaan jonka
 * arvo on true 
 */
@@ -14,14 +15,22 @@ public class Lauta {
     private int x;
     private int y;
     
+    /**
+     * Muuttuja ylös on true, mikäli laudan halutaan liikkuvan
+     * ylös, muuten false.
+     */
     private boolean ylos;
+    /**
+     * Muuttuja alas on true, mikäli laudan halutaan liikkuvan
+     * alas, muuten false.
+     */
     private boolean alas;
     
     /**
-     * Laudalla on x ja y koordinantit, sekä boolean muuttuja
+     * Laudalla on x ja y koordinaatit, sekä boolean muuttuja
      * joka kertoo mihin suuntaan lauta on menossa
-     * @param x
-     * @param y 
+     * @param x x-koordinaatti
+     * @param y y-koordinaatti
      */
     public Lauta(int x, int y){
         this.x = x;
@@ -61,6 +70,12 @@ public class Lauta {
             this.y = 342;
         }
     }
+    /**
+     * Resetoi laudan sijainnin, muuttujina
+     * annettuihin arvoihin.
+     * @param x
+     * @param y 
+     */
     public void reset(int x, int y){
         this.x = x;
         this.y = y;

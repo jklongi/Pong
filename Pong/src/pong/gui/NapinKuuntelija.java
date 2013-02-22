@@ -7,7 +7,7 @@ import javax.swing.JTextField;
 import pong.peli.Peli;
 
 /**
- * Luokka kuuntelee nappien klikkauksen ja asettaa niille toiminnot
+ * Kuuntelee nappien klikkaukset ja asettaa niille toiminnot.
  */
 public class NapinKuuntelija implements ActionListener {
 
@@ -18,6 +18,16 @@ public class NapinKuuntelija implements ActionListener {
     private JTextField pelaaja2;
     private Peli peli;
 
+    /**
+     * Konstruktori saa parametrinaan napit, tekstikentät, sekä pelin
+     *
+     * @param aloita uusi peli nappi
+     * @param lopeta lopeta peli nappi
+     * @param ohjeet ohjeet nappi
+     * @param pelaaja1 tekstikenttä joka sisältää pelaajan 1 nimen
+     * @param pelaaja2 tekstikenttä joka sisältää pelaajan 2 nimen
+     * @param peli
+     */
     public NapinKuuntelija(JButton aloita, JButton lopeta, JButton ohjeet,
             JTextField pelaaja1, JTextField pelaaja2, Peli peli) {
         this.aloita = aloita;
@@ -29,13 +39,14 @@ public class NapinKuuntelija implements ActionListener {
     }
 
     /**
-     * Lopeta napista koko frame sulkeutuu, jos peli on päällä palaa se
+     * Lopeta napista koko frame sulkeutuu, tai jos peli on päällä palaa se
      * valikkoon.
      *
      * Aloita napista itse pong-peli alkaa, jos peli on päällä ei tapahdu
      * mitään.
-     * 
+     *
      * Ohjeet nappi aukaisee uuden ohjeet ikkunan
+     *
      * @param ae
      */
     @Override
@@ -44,29 +55,30 @@ public class NapinKuuntelija implements ActionListener {
             if (!peli.kaynnissa()) {
                 peli.uusiPeli(haeNimi(pelaaja1), haeNimi(pelaaja2));
             }
-            if (ae.getSource() == lopeta) {
-                if (!peli.kaynnissa()) {
-                    System.exit(0);
-                } else {
-                    peli.lopeta();
-                }
-            }
-
-            if (ae.getSource() == ohjeet) {
-                Ohjeet ohj = new Ohjeet();
-                ohj.run();
-            }
-
         }
-    }
-    /**
-     * Poimii pelaajien nimet nimikentistä. Mikäli pelaajat eivät kirjoita 
-     * mitään tekstikenttään nimeksi valitaan "Nimetön", tai jos nimi on 
-     * yli 10 merkkiä pitkä siitä leikataan kaikki yli 10 menevät merkit.
-     * @param pelaaja
-     * @return 
-     */
+        if (ae.getSource() == lopeta) {
+            if (!peli.kaynnissa()) {
+                System.exit(0);
+            } else {
+                peli.lopeta();
+            }
+        }
 
+        if (ae.getSource() == ohjeet) {
+            Ohjeet ohj = new Ohjeet();
+            ohj.run();
+        }
+
+    }
+
+    /**
+     * Poimii pelaajien nimet nimikentistä. Mikäli pelaajat eivät kirjoita
+     * mitään tekstikenttään nimeksi valitaan "Nimetön", tai jos nimi on yli 10
+     * merkkiä pitkä siitä leikataan kaikki yli 10 menevät merkit.
+     *
+     * @param pelaaja
+     * @return pelaajan nimi
+     */
     private String haeNimi(JTextField pelaaja) {
         if (pelaaja.getText().isEmpty()) {
             return "Nimetön";

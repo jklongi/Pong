@@ -14,8 +14,9 @@ import pong.peli.Peli;
 import pong.sound.Musiikki;
 
 /**
- * Käyttöliittymä joka käynnistää tai lopettaa pelin nappia painamalla
+ * Käyttöliittymä luo peli-ikkunan ja lisää siihen komponentit.
  *
+ * @author Joonas
  */
 public class Kayttoliittyma implements Runnable {
 
@@ -25,6 +26,11 @@ public class Kayttoliittyma implements Runnable {
     private JTextField pelaaja1;
     private JTextField pelaaja2;
 
+    /**
+     * Konstruktori saa parametrinaan pelin.
+     *
+     * @param peli
+     */
     public Kayttoliittyma(Peli peli) {
         this.peli = peli;
     }
@@ -47,26 +53,29 @@ public class Kayttoliittyma implements Runnable {
         frame.setFocusable(true);
     }
 
+    /**
+     * Luo musiikin.
+     */
     private void aloitaMusiikki() {
         Musiikki musiikki = new Musiikki();
         musiikki.play();
     }
-    /**
-     * Päivittää container olion komponentit boolean arvo käynnissä
-     * mukaan.
-     */
 
+    /**
+     * Päivittää container olion komponentit boolean arvo käynnissä mukaan.
+     */
     public void paivita() {
         luoKomponentit(frame.getContentPane());
         frame.pack();
         frame.setVisible(true);
         frame.paint(frame.getGraphics());
     }
+
     /**
-     * Clearaa containerin kokonaan, ja piirtää uudelleen 
-     * sopivat komponentit riippuen onko peli.kaynnissa() true
-     * vai false
-     * @param container 
+     * Clearaa containerin kokonaan, ja piirtää uudelleen sopivat komponentit
+     * riippuen onko peli.kaynnissa() true vai false
+     *
+     * @param container
      */
     private void luoKomponentit(Container container) {
         container.removeAll();
@@ -76,9 +85,11 @@ public class Kayttoliittyma implements Runnable {
             luoValikkoKomponentit(container);
         }
     }
+
     /**
-     * Luo piirtoalusta, lisää sen, nimikentät, sekä alavalikon containeriin
-     * @param container 
+     * Luo piirtoalustan, lisää sen, nimikentät, sekä alavalikon containeriin
+     *
+     * @param container
      */
     private void luoValikkoKomponentit(Container container) {
         piirtoalusta = new Piirtoalusta(peli);
@@ -86,10 +97,12 @@ public class Kayttoliittyma implements Runnable {
         container.add(luoNimikentta(), BorderLayout.NORTH);
         container.add(luoValikko(), BorderLayout.SOUTH);
     }
+
     /**
-     * Luo piirtoalustan, lisää näppäimistönkuuntelijan frameen,
-     * sekä piirtoalustan ja alavalikon containeriin
-     * @param container 
+     * Luo piirtoalustan, lisää näppäimistönkuuntelijan frameen, sekä
+     * piirtoalustan ja alavalikon containeriin
+     *
+     * @param container
      */
     private void luoPeliKomponentit(Container container) {
         piirtoalusta = new Piirtoalusta(peli);
@@ -100,7 +113,7 @@ public class Kayttoliittyma implements Runnable {
 
     /**
      * Luo uuden JPanelin, johon lisätään aloita ja lopeta nappi, sekä
-     * kuuntelija
+     * kuuntelija napeille
      *
      * @return JPanel
      */
