@@ -64,8 +64,7 @@ public class Piirtoalusta extends JPanel {
 
         graphics.setColor(new Color(56, 199, 229));
         graphics.drawString("Viimeisimmät pelitulokset:", 20, 20);
-        Lukija lukija = new Lukija();
-        ArrayList<String> tulokset = lukija.lue();
+        ArrayList<String> tulokset = peli.getTallentaja().getTulokset();
         for (int i = 0; i < tulokset.size(); i++) {
             graphics.drawString(tulokset.get(i), 20, 30 + (i + 1) * 20);
         }

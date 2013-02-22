@@ -23,7 +23,7 @@ public class Ohjeet implements Runnable {
     @Override
     public void run() {
         frame = new JFrame("Ohjeet");
-        frame.setPreferredSize(new Dimension(600, 100));
+        frame.setPreferredSize(new Dimension(630, 100));
         frame.setDefaultCloseOperation(WindowConstants.DISPOSE_ON_CLOSE);
         frame.setBackground(Color.GRAY);
         luoKomponentit(frame.getContentPane());

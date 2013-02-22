@@ -7,6 +7,7 @@ import pong.domain.Pallo;
 import pong.domain.Pelaaja;
 import pong.gui.Kayttoliittyma;
 import pong.gui.Piirtoalusta;
+import pong.tulokset.Lukija;
 import pong.tulokset.Tallentaja;
 
 /**
@@ -42,6 +43,8 @@ public class Peli {
         this.liikkuja = new PongLiikkuja(this);
         ajanKuuntelija = new AjanKuuntelija(liikkuja);
         timer = new Timer(4, ajanKuuntelija);
+        Lukija lukija = new Lukija();
+        tallentaja = new Tallentaja(lukija.lue());
     }
 
     /**
@@ -54,12 +57,12 @@ public class Peli {
      */
     public void uusiPeli(String p1Nimi, String p2Nimi) {
         luoPelaajat(p1Nimi, p2Nimi);
+        kaynnissa = true;
         pallo.reset();
         lautaVasen.reset(5, 185);
         lautaOikea.reset(575, 185);
-        piirtoalusta.repaint();
-        kaynnissa = true;
         kayttoliittyma.paivita();
+        piirtoalusta.repaint();
         liikkuja.arvoSuunta();
         timer.start();
 
@@ -83,7 +86,6 @@ public class Peli {
     public void lopeta() {
         kaynnissa = false;
         timer.stop();
-        tallentaja = new Tallentaja();
         tallentaja.kirjoitaTulokset(p1, p2);
         kayttoliittyma.paivita();
         piirtoalusta.repaint();
@@ -162,5 +164,9 @@ public class Peli {
 
     public Pallo getPallo() {
         return pallo;
+    }
+    
+    public Tallentaja getTallentaja() {
+        return tallentaja;
     }
 }

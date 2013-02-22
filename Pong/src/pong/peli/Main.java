@@ -13,9 +13,9 @@ public class Main {
         Peli peli = new Peli();
         Kayttoliittyma liittyma = new Kayttoliittyma(peli);
         SwingUtilities.invokeLater(liittyma);
-
         while (liittyma.getPiirtoalusta() == null) {
             try {
+                Thread.sleep(100);
             } catch (Exception e) {
                 System.out.println("Piirtoalustaa ei ole vielä luotu");
             }

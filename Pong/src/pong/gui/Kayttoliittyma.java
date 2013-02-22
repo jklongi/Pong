@@ -42,6 +42,7 @@ public class Kayttoliittyma implements Runnable {
     public void run() {
         aloitaMusiikki();
         frame = new JFrame("Pong");
+        piirtoalusta = new Piirtoalusta(peli);
         frame.setPreferredSize(new Dimension(600, 450));
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         frame.setResizable(false);
@@ -92,7 +93,6 @@ public class Kayttoliittyma implements Runnable {
      * @param container
      */
     private void luoValikkoKomponentit(Container container) {
-        piirtoalusta = new Piirtoalusta(peli);
         container.add(piirtoalusta, BorderLayout.CENTER);
         container.add(luoNimikentta(), BorderLayout.NORTH);
         container.add(luoValikko(), BorderLayout.SOUTH);
@@ -105,7 +105,6 @@ public class Kayttoliittyma implements Runnable {
      * @param container
      */
     private void luoPeliKomponentit(Container container) {
-        piirtoalusta = new Piirtoalusta(peli);
         frame.addKeyListener(new NappaimistonKuuntelija(peli.getLauta(1), peli.getLauta(2)));
         container.add(piirtoalusta, BorderLayout.CENTER);
         container.add(luoValikko(), BorderLayout.SOUTH);

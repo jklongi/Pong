@@ -11,7 +11,6 @@ import java.util.Scanner;
  */
 public class Lukija {
 
-    public static final int MAKSIMIKOKO = 15;
     private ArrayList<String> tulos;
     /**
      * Konstruktori luo ArrayListin
@@ -32,30 +31,17 @@ public class Lukija {
             Scanner lukija = new Scanner(tiedosto);
             while (lukija.hasNextLine()) {
                 String rivi = lukija.nextLine();
-                tulos.add(0, rivi);
+                tulos.add(rivi);
 
             }
 
         } catch (Exception e) {
-            System.out.println("Filreader: " + e);
+            System.out.println("Tuloksia ei luettu");
         }
-
-        siisti();
 
         return tulos;
 
     }
 
-    /**
-     * Siistii listasta rekursiivisesti kaikki alkiot yli maksimikoon
-     */
-    public void siisti() {
-        if (tulos.size() <= MAKSIMIKOKO) {
-            return;
-        }
-        if (this.tulos.size() > MAKSIMIKOKO) {
-            tulos.remove(tulos.size() - 1);
-        }
-        siisti();
-    }
+   
 }
